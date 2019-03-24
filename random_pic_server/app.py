@@ -16,8 +16,8 @@ RESPONSE_HEADER = {
 }
 
 # 画像選択間隔
-PIC_SELECT_INTERVAL_SEC = os.environ.get('PIC_SELECT_INTERVAL_SEC', 30)
-PIC_SELECT_DELTA = timedelta(seconds=PIC_SELECT_INTERVAL_SEC)
+PIC_SELECT_INTERVAL_SEC = os.environ.get('PIC_SELECT_INTERVAL_SEC', '30')
+PIC_SELECT_DELTA = timedelta(seconds=int(PIC_SELECT_INTERVAL_SEC))
 
 # メモリ上で保持する情報
 # flask runで起動するサーバーではリクエストの並列処理を行わないため、

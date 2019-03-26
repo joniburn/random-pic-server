@@ -36,6 +36,7 @@ def hello():
     now = datetime.now()
     selection_required = now - pic_selected_latest_time > PIC_SELECT_DELTA
     if current_picture_data and not selection_required:
+        logger.info('End: not updated')
         return make_response(current_picture_data, 200, RESPONSE_HEADER)
 
     # 返却する画像ファイルを選択

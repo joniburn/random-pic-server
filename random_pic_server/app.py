@@ -5,7 +5,7 @@ from random import choice
 
 from flask import Flask, make_response
 app = Flask(__name__)
-
+logger = app.logger
 
 # 対象画像の格納ディレクトリ
 PICS_DIR = os.environ['PICS_DIR']
@@ -28,6 +28,7 @@ current_picture_data = None  # 現在選択されている画像のバイナリ�
 
 @app.route('/')
 def hello():
+    logger.info('Start')
     global pic_selected_latest_time
     global current_picture_data
 
@@ -49,4 +50,5 @@ def hello():
     pic_selected_latest_time = now
 
     # レスポンスを返却
+    logger.info('End')
     return make_response(current_picture_data, 200, RESPONSE_HEADER)
